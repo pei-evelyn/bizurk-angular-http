@@ -10,12 +10,14 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  data;
   post;
+  show;
+  data;
 
   ngOnInit() {
     this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(data => {
       this.data = data;
+      this.show = true;
       console.log(this.data)
     })
   }
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
   getPostInfo(id) {
     this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`).subscribe(data => {
       console.log(data)
+      this.show = false;
       this.post = data;
     })
   }
