@@ -1,1 +1,5 @@
-<div *ngFor="let something of data" (click)="getPostInfo(something.id)" [ngClass]="{ hidden:false }">{{something.id}}</div>
+<ng-container *ngIf="show">
+  <div *ngFor="let something of data" (click)="getPostInfo(something.id)">{{something.id}}</div>
+</ng-container>
+
+<div *ngIf="show === false">{{post.id}}</div>
